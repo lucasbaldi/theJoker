@@ -1,3 +1,5 @@
+var express = require('express');
+var router = express.Router();
 
 // ****************************
 // Script dependant CONSTANTS
@@ -39,13 +41,22 @@ var jokes = [
 
 function getJoke(list) {
     var index = getRandomNum(1, list.length);
+    return(list[index])
+    /*
     var question = list[index].split("? ")[0];
     var answer = list[index].split("? ")[1];
     console.log("This is the joke: " + question);
     console.log("This is an answer: " + answer);
+    */
 }
 
 function getRandomNum(min, max) {
     // Produces a random number between min and max
     return (Math.round(min - 0.5 + (Math.random() * max)) - 1);
 }
+
+router.get('/', function(req, res, next) {
+  res.send(getJoke(jokes))
+});
+
+module.exports = router;
