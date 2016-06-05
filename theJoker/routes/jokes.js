@@ -49,7 +49,17 @@ var jokes = [
     "At the rate law schools are turning them out, by 2050 there will be more lawyers than humans."
 ];
 
-function getJoke(list) {
+var laughs = [
+  "Ha ha ha ha ha",
+  "heh heh heh heh",
+  "ehehehe",
+  "aha ah ha ha ahaha",
+  "ho ho ho ho heh hoo haw",
+  "haw haw haw haw",
+  "he hoo who ha hwoa"
+]
+
+function getItem(list) {
     var index = getRandomNum(1, list.length);
     return(list[index])
     /*
@@ -108,8 +118,8 @@ router.get('/:words', function(req, res, next) {
   }
 
   request.post(options, callback);
-  var joke = getJoke(jokes)
-  joke = joke + "    Ha ha ha ha ha"
+  var joke = getItem(jokes)
+  joke = joke + getItem(laughs)
   console.log(joke)
   res.send(joke)
 });
