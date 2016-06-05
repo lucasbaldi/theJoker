@@ -64,7 +64,7 @@ var sadness = [
 var laughs = [
   "Ha ha ha ha ha",
   "heh heh heh heh",
-  "ehe he he",
+  "ehe he he he he",
   "aha ah ha ha ahaha",
   "ho ho ho ho heh hoo haw",
   "haw haw haw haw",
