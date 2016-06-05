@@ -82,7 +82,6 @@ var comment = [
   "do you think you're funny",
   "what's up",
   "you suck",
-  "what",
   "I'm bored",
   "I was stuck in traffic",
   "whats the deal with potatoes",
