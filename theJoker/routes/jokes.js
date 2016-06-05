@@ -81,7 +81,6 @@ var comment = [
   "to cheer me up",
   "do you think you're funny",
   "what's up",
-  "you suck",
   "I'm bored",
   "I was stuck in traffic",
   "whats the deal with potatoes",
