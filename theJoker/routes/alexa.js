@@ -48,27 +48,32 @@ router.get('/joke', function(req, res, next) {
         res.send(err)
       }
 
-      console.log("body "+body)
+
       joke=body;
 
+      console.log("body "+joke)
+      var dataString = '{"text":"' + joke +'"}';
+      console.log(dataString)
+      var options = {
+          url: 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19',
+          headers: headers,
+          body: dataString
+      };
+
+      function callback(error, response, body) {
+          if(error){
+            console.log(error)
+          }else{
+            response.joke=joke;
+            console.log(response)
+            res.send(response)
+          }
+      }
+      request.post(options, callback);
     }
   )
 
-  var dataString = '{"text":'+ joke+'"}';
 
-  var options = {
-      url: 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19',
-      headers: headers,
-      body: dataString
-  };
-
-  function callback(error, response, body) {
-      if(error){
-        console.log(error)
-      }else{
-        res.send(response)
-      }
-  }
 });
 
 
