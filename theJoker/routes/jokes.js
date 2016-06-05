@@ -119,7 +119,7 @@ router.get('/:words', function(req, res, next) {
 
   request.post(options, callback);
   var joke = getItem(jokes)
-  joke = joke + getItem(laughs)
+  joke = joke + "   "+ getItem(laughs)
   console.log(joke)
   res.send(joke)
 });
