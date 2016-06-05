@@ -154,7 +154,7 @@ router.get('/:words', function(req, res, next) {
           break;
        }
 
-       joke = joke + "   " + getItem(laughs)
+       joke = joke + "..." + getItem(laughs)
        console.log(joke)
        res.send(joke)
      }
