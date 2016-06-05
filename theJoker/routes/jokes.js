@@ -56,10 +56,15 @@ function getRandomNum(min, max) {
 }
 
 router.get('/', function(req, res, next) {
-  res.send(getJoke(jokes))
+  var joke = getJoke(jokes)
+  console.log(joke)
+  res.send(joke)
 });
 
 router.get('/:words', function(req, res, next) {
-  res.send(getJoke(jokes))
+  var joke = getJoke(jokes)
+  console.log(joke)
+  res.send(joke)
 });
+
 module.exports = router;
