@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request')
+var _ = require('underscore')
+var password = "D5IKoXbX2m8R";
+var username = "1d8bf850-2191-48db-b787-852eabbe7225";
 
+var auth = 'Basic ' + new Buffer(username + ':' + password).toString('base64');
+
+var headers = {
+  Authorization : auth,
+  'Content-Type': 'application/json'
+};
 // ****************************
 // Script dependant CONSTANTS
 // ****************************
@@ -62,7 +72,44 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:words', function(req, res, next) {
+  var text = req.params.words;
+  var dataString = '{"text":\"'+ text+'\"}';
+
+  var options = {
+     url: 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19',
+     headers: headers,
+     body: dataString
+  };
+
+  function callback(error, response, body) {
+     if(error){
+       console.log(error)
+     }else{
+       var resp = JSON.parse(body);
+       var tones = resp.document_tone.tone_categories[0].tones
+       //console.log(tones)
+       //console.log(tones.length)
+
+       var maxTone = _.max(tones, function(tone){return tone.score});
+       /*
+       for (i=0;i<tones.length;i++){
+         console.log(tones[i])
+         if(tones[i].score > maxScore){
+           maxScore = tones[i].score;
+           maxTone = tones[i].tone_name;
+         }
+         console.log("Max Score = " + maxScore)
+         console.log("Max Tone = " + maxTone)
+       }
+       */
+       console.log("Max Tone = " + maxTone.score + " With Score = " + maxTone.tone_name)
+       //res.send(resp.document_tone.tone_categories[0].tones);
+     }
+  }
+
+  request.post(options, callback);
   var joke = getJoke(jokes)
+  joke = joke + "    Ha ha ha ha ha"
   console.log(joke)
   res.send(joke)
 });
