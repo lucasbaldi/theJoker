@@ -89,7 +89,7 @@ function getRandomNum(min, max) {
 
 router.get('/', function(req, res, next) {
   var joke = getItem(joy)
-  joke = joke + "..." + getItem(laughs)
+  joke = joke + "..." + getItem(laughs) + " ... Hey Alexa, Ask Jerry whats up"
   console.log(joke)
   res.send(joke)
 });
@@ -155,7 +155,7 @@ router.get('/:words', function(req, res, next) {
           break;
        }
 
-       joke = joke + "..." + getItem(laughs)
+       joke = joke + "..." + getItem(laughs) + " ... Hey Alexa, Ask Jerry whats up"
        console.log(joke)
        res.send(joke)
      }
