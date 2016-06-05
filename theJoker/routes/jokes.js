@@ -29,7 +29,7 @@ var disgust = [
     "Why did the fireman wear red, white, and blue suspenders? To hold his pants up.",
     "Why didn't the crab share his food? Because crabs are territorial animals, that don't share anything.",
     "Why was the javascript developer sad? Because he didn't Node how to Express himself.",
-    "What do I look like? A JOKE MACHINE!?",
+    "What do I look like? A JOKE MACHINE! ",
     "How did the hipster burn the roof of his mouth? He ate the pizza before it was cool.",
     "I'm a humorless, cold hearted, machine."
 ]
@@ -49,7 +49,7 @@ var joy = [
     "What is a centipedes's favorite Beatle song?  I want to hold your hand, hand, hand, hand...",
     "Why did the cookie cry? It was feeling crumby.",
     "I used to be a banker, but I lost interest.",
-    "What do you call a chicken crossing the road? Poultry in moton. "
+    "What do you call a chicken crossing the road? Poultry in motion. "
 ]
 
 var sadness = [
@@ -64,11 +64,32 @@ var sadness = [
 var laughs = [
   "Ha ha ha ha ha",
   "heh heh heh heh",
-  "ehehehe",
+  "ehe he he",
   "aha ah ha ha ahaha",
   "ho ho ho ho heh hoo haw",
   "haw haw haw haw",
   "he hoo who ha hwoa"
+]
+
+var starter = " Hey Alexa, Ask Jerry "
+
+var comment = [
+  "Whats up",
+  "to Tell me a joke",
+  "Damn tell a joke",
+  "What you got",
+  "to make me laugh",
+  "I Had a rough day",
+  "to cheer me up",
+  "do you think you're funny",
+  "what's up",
+  "you suck",
+  "what",
+  "I'm bored",
+  "I was stuck in traffic",
+  "whats the deal with potatoes",
+  "whats the deal with pizza",
+  "whats the deal with reservations"
 ]
 
 function getItem(list) {
@@ -89,7 +110,7 @@ function getRandomNum(min, max) {
 
 router.get('/', function(req, res, next) {
   var joke = getItem(joy)
-  joke = joke + "..." + getItem(laughs) + " ... Hey Alexa, Ask Jerry whats up"
+   joke = joke + " ... " + getItem(laughs) + " ... " + starter + getItem(comment)
   console.log(joke)
   res.send(joke)
 });
@@ -155,7 +176,7 @@ router.get('/:words', function(req, res, next) {
           break;
        }
 
-       joke = joke + "..." + getItem(laughs) + " ... Hey Alexa, Ask Jerry whats up"
+       joke = joke + " ... " + getItem(laughs) + " ... " + starter + getItem(comment)
        console.log(joke)
        res.send(joke)
      }
