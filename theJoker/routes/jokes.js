@@ -66,9 +66,7 @@ var laughs = [
   "heh heh heh heh",
   "ehe he he he he",
   "aha ah ha ha ahaha",
-  "ho ho ho ho heh hoo haw",
-  "haw haw haw haw",
-  "he hoo who ha hwoa"
+  "ho ho ho ho ho"
 ]
 
 var starter = " Hey Alexa, Ask Jerry "
