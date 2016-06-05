@@ -62,10 +62,8 @@ router.get('/joke', function(req, res, next) {
 
       function callback(error, response, body) {
           if(error){
-            console.log(error)
+            //console.log(error)
           }else{
-            response.joke=joke;
-            console.log(response)
             res.send(response)
           }
       }
