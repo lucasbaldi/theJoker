@@ -59,4 +59,7 @@ router.get('/', function(req, res, next) {
   res.send(getJoke(jokes))
 });
 
+router.get('/:words', function(req, res, next) {
+  res.send(getJoke(jokes))
+});
 module.exports = router;
